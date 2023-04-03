@@ -90,16 +90,19 @@ class Video extends React.Component {
 
   // // onclick add to like or dislike
   async thumbChange(thumb) {
-    // const { data } = this.state;
+    const { data } = this.state;
     const count = this.state[thumb] + 1;
     await this.setState({
       [thumb]: count,
     });
     // !data ? this.addMovie() : this.incrementMovie();
-
-    this.addMovie();
-
-  // }
+    if (!data) {
+      this.addMovie();
+    } else {
+      alert("you already like/dislike this movie , you can't like/dislike a movie more than one time");
+    }
+    // }
+    this.incrementMovie();
   }
   // if(this.state.data === false){
   //   axios.post('/Movie', {
