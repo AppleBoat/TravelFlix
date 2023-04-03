@@ -113,7 +113,7 @@ app.post('/search', (req, res) => {
 
   app.put('/Movie/UpdateThumbs/', (req, res) => {
     const { movieName, thumbsUp, thumbsDown } = req.body;
-
+    console.log('thumbs', thumbsDown);
     Movie.update({
       thumbsUp,
       thumbsDown,
